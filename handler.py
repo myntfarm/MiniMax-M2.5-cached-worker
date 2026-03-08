@@ -2,7 +2,7 @@ import os
 import runpod
 from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 
-MODEL_ID = os.environ.get("MODEL_NAME", "unsloth/DeepSeek-V3.2-GGUF:Q4_K_M")
+MODEL_ID = os.environ.get("MODEL_NAME", "mlx-community/DeepSeek-V3.2-4bit")
 HF_CACHE_ROOT = "/runpod-volume/huggingface-cache/hub"
 
 # Force offline mode to use only cached models
