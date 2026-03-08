@@ -2,7 +2,7 @@ import os
 import runpod
 from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 
-MODEL_ID = os.environ.get("MODEL_NAME", "XiaomiMiMo/MiMo-V2-Flash")
+MODEL_ID = os.environ.get("MODEL_NAME", "MiniMaxAI/MiniMax-M2.5")
 HF_CACHE_ROOT = "/runpod-volume/huggingface-cache/hub"
 
 # Force offline mode to use only cached models
