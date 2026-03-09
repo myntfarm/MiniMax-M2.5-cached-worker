@@ -4,3 +4,4 @@ accelerate>=1.6.0
 safetensors>=0.5.3
 sentencepiece
 protobuf
+typing_extensions>=4.6.0   # safety net for any other backports needed

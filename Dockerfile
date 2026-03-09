@@ -1,6 +1,8 @@
-FROM madiator2011/better-pytorch:cuda12.4-torch2.6.0
+FROM runpod/pytorch:1.0.2-cu1281-torch280-ubuntu2404
 
-WORKDIR /app
+# Verify Python version at build time
+RUN python3 --version | grep -E "3\.(11|12|13)" || \
+    (echo "ERROR: Python 3.11+ required" && exit 1)
 
 WORKDIR /app
 
@@ -9,9 +11,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Smoke test
 RUN python3 -c "\
-import torch; \
-from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline; \
-print(f'torch={torch.__version__}'); \
+import sys; \
+assert sys.version_info >= (3, 11), f'Python 3.11+ required, got {sys.version}'; \
+from typing import Unpack; \
+from transformers import AutoModelForCausalLM, AutoTokenizer; \
+print(f'Python={sys.version}'); \
 print('Smoke test passed')"
 
 COPY handler.py /app/handler.py
