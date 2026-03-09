@@ -69,8 +69,9 @@ tokenizer = AutoTokenizer.from_pretrained(
 
 model = AutoModelForCausalLM.from_pretrained(
     LOCAL_MODEL_PATH,
-    trust_remote_code=False,
-    torch_dtype="auto",
+    trust_remote_code=tRUE,
+    torch_dtype=torch.bfloat16,
+    quantization_config=None,
     device_map="auto",
     local_files_only=True,
     attn_implementation="eager",
