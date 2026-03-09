@@ -1,6 +1,7 @@
 import os
 import runpod
 from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
+import torch
 
 MODEL_ID = os.environ.get("MODEL_NAME", "MiniMaxAI/MiniMax-M2.5")
 HF_CACHE_ROOT = "/runpod-volume/huggingface-cache/hub"
